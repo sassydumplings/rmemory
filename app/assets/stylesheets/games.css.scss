@@ -10,8 +10,7 @@ html,body {
 body {
   background:gold;
   font-family: sans-serif;
-  background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, white), color-stop(0.25, white), color-stop(0.25, beige), color-stop(0.5, beige), color-stop(0.5, white), color-stop(0.75, white), color-stop(0.75, beige));
-  background-size: 20px 20px;
+  background-image: image-url("bamboo.png");
 }
 img {
   display:block;
@@ -39,12 +38,12 @@ img {
 }
 #game > #board > .tile {
   float:left;
-  height:160px;
-  width:160px;
-  margin-top:60px;
-  margin-right:60px;
+  height:150px;
+  width:150px;
+  margin-top:50px;
+  margin-right:50px;
   background:black;
-  background:#b80000;
+  background:#7f8c8d;
   border-radius:50%;
 }
 #game.great_success #board {
@@ -109,7 +108,7 @@ img {
   padding:10px 40px;
   text-decoration:none;
   border:0;
-  background:#b80000;
+  background:#27ae60;
 }
 #results button:hover,
 #results button:active {

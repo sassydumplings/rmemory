@@ -1,0 +1,12 @@
+- seed file - DONE
+- login/users- DONE
+- game behind protected page - LATER
+- redirect on logout to something else
+- play an asian theme when game first launches
+- build gameboard from random kanji that are not marked "learned"
+- pop detail page when two kanji match
+- playing "good job" mp3 file when two kanji match
+- add a button that marks this kanji as "learned"
+- user can mark kanji as "learned"
+- report on percentage kanji learned vs to learn
+- Apply an Asian background/color - done

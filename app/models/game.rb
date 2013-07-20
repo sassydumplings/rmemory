@@ -1,4 +1,4 @@
 class Game < ActiveRecord::Base
   attr_accessible :img_url, :img_details
-  has_many_belongs_to :users
+  has_and_belongs_to_many  :users
 end

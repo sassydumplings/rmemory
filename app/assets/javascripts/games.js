@@ -55,6 +55,10 @@ $(function() {
     });
   };
 
+//  method to post kanji detail
+  var pop_kanjii = function() {
+  };
+
   var is_match = function() {
     return selected[0].data('img-src') == selected[1].data('img-src');
   };

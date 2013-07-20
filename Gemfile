@@ -14,6 +14,7 @@ gem 'better_errors'
 gem 'soundcloud'
 gem 'annotate'
 gem 'sorcery'
+gem 'underscore-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
