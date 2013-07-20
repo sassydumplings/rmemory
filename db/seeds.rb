@@ -13,3 +13,9 @@
 # Game.create(img_url: 'assets/six.png', img_details: 'assets/six_detail.png')
 # Game.create(img_url: 'assets/seven.png', img_details: 'assets/seven_detail.png')
 # Game.create(img_url: 'assets/eight.png', img_details: 'assets/eight_detail.png')
+
+for n in 1...24
+  Game.create(img_url: 'assets/#{n}.png', img_details: 'assets/#{n}_detail.png')
+end
+
+
