@@ -1,6 +1,6 @@
 - seed file - DONE
 - login/users- DONE
-- game behind protected page - LATER
+- game behind protected page -
 - redirect on logout to something else - DONE
 - play an asian theme when game first launches - LATER
 - build gameboard from random kanji that are not marked "learned"
@@ -8,52 +8,59 @@
 - pop detail page when two kanji match
 - playing "good job" mp3 file when two kanji match
 - add a button that marks this kanji as "learned"
-- user can mark kanji as "learned"
 - report on percentage kanji learned vs to learn
-- Apply an Asian background/color - done
+- Apply an Asian background/color - DONE
 
-<!-- Psuedo Code
-@games has 6 random samples from the db
-Construct <div class="tile"><img src="assets/#{n}.png" alt="kanjii radical"></div>
-Two for each sample and place them randomly on the board
-<div class ="tile"> <<%= img src="#{g.img_url}" alt="kanjii radical"%>></div>
- -->
+punch list:
 
-<div class="tile">
-  <img src="assets/1.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/6.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/7.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/24.png" alt="kanjii radical">
-</div>
+1. display details:
+    make visible (.removeClass('hidden'))
+    'mark learned' button - updates the games_user table "game_id"   "user_id" and returns to game in current
+    'cont game' hide overlay
+2. pull game samples from games without IDs in games_users
+3. Nav bar has links to: login, game, % of kanjii learned
+4. how to require login before playing a game.. err msg "too many redirects"
 
- <div class="tile">
-  <img src="assets/11.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/6.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/24.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/9.png" alt="kanjii radical">
-</div>
+@current user id
+@id is kanju
+games_user table
 
-<div class="tile">
-  <img src="assets/7.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/1.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/9.png" alt="kanjii radical">
-</div>
-<div class="tile">
-  <img src="assets/11.png" alt="kanjii radical">
-</div>
+
+submit ajax to controller action - bvrg
+
+create a route /index/:game_id
+1. create a button ..
+use .hmtl() to add the button on the page - the button will be replaced
+2. have it send an ajax when clicked
+4. hide the display
+
+
+object.find
+
+game controler
+
+games/learn/:kanji_id
+
+in learn action: params[:kanjid]
+
+stuff taht update games_useres
+
+
+1] pry(main)> user1 = User.first
+  User Load (1.0ms)  SELECT "users".* FROM "users" LIMIT 1
+=> #<User id: 1, username: "patsy", email: "patsy.m.price@gmail.com", crypted_password: "$2a$10$dobYyxI4OOShdDB.cPfY7uqKDCJqHLrvlCPv/6oVBf6S...", salt: "GeAycMPnTqqaPszhPVHR", created_at: "2013-07-20 19:04:06", updated_at: "2013-07-20 19:04:06">
+[2] pry(main)> game1 = Game.first
+  Game Load (0.4ms)  SELECT "games".* FROM "games" LIMIT 1
+=> #<Game id: 1, img_url: "assets/1.png", img_details: "assets/1_detail.png", created_at: "2013-07-20 18:15:08", updated_at: "2013-07-20 18:15:08">
+[3] pry(main)> user1.games
+  Game Load (1.4ms)  SELECT "games".* FROM "games" INNER JOIN "games_users" ON "games"."id" = "games_users"."game_id" WHERE "games_users"."user_id" = 1
+=> []
+[4] pry(main)> user1.games << game1
+   (1.8ms)  BEGIN
+   (2.7ms)  INSERT INTO "games_users" ("user_id", "game_id") VALUES (1, 1) RETURNING "id"
+   (1.7ms)  COMMIT
+=> [#<Game id: 1, img_url: "assets/1.png", img_details: "assets/1_detail.png", created_at: "2013-07-20 18:15:08", updated_at: "2013-07-20 18:15:08">]
+[5] pry(main)>
+
+
+
