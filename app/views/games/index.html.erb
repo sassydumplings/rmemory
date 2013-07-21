@@ -1,52 +1,21 @@
 
      <div id="game">
-      <div id="board">
-        <div class="tile">
-          <img src="assets/1.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/6.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/7.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/24.png" alt="kanjii radical">
-        </div>
+       <div id="board">
 
-         <div class="tile">
-          <img src="assets/11.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/6.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/24.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/9.png" alt="kanjii radical">
-        </div>
-
-        <div class="tile">
-          <img src="assets/7.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/1.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/9.png" alt="kanjii radical">
-        </div>
-        <div class="tile">
-          <img src="assets/11.png" alt="kanjii radical">
-        </div>
+          <% @rand_arr.each do |g| %>
+              <div class ="tile">
+                <img src=<%= "#{g.img_url}"%> alt="kanjii radical">
+              </div>
+           <% end %>
       </div>
   </div>
 
       <div id="details" class="hidden">
         <span class="image detail"></span>
         <h1>You found a match!</h1>
-        <p>Here is more info about this Kanjii Radical<span id="score"></span> clicks.</p>
-        <button>next move</button>
+        <p>Here is more info about this Kanjii Radical</p>
+        <button>cont game</button>
+        <button>mark learned</button>
       </div>
 
       <div id="results">

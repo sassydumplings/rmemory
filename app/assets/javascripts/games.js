@@ -80,9 +80,7 @@ $(function() {
       var results = $('#results');
       var score   = $('#score', results);
       var button  = $('button', results);
-      var img_el  = $('.image.random', results);
 
-      img_el.html(get_random_image());
       score.html(num_clicks);
       button.on('click', new_game);
       results.fadeIn();

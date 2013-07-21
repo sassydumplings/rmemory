@@ -2,12 +2,20 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all.sample(10)
+    # comment code
+    @games = Game.all.sample(6)
+    @rand_arr = []
+    i = 1
+    while i < 3
+        @games.each { |i| @rand_arr << i }
+        i += 1
+    end
+    @rand_arr.shuffle!
 
-# double = []
-# @games.each |img|
-# @double << img
-# @double .shuffle!
+
+    #@games.each |img|
+    # @double << img
+    # @double .shuffle!
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,12 +25,3 @@ class GamesController < ApplicationController
 end
 
 
-# @pics =[1,2,3]
-
-# @pics.each do |p|
-#   end
-
-#   @pics.shuffle!
-#   =>  [2,1,3]
-
-#   @games = Game.all.sample(10)  sample pulls a sample  size from DB
