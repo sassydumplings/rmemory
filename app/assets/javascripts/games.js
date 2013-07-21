@@ -1,8 +1,5 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
-// TODO:
-
-// play sad trombone on failed match!
 
 $(function() {
 
@@ -23,6 +20,11 @@ $(function() {
       tile.data('img-src', tile.find('img').attr('src'));
       tile.on('click', handle_click);
     });
+
+    // closes the kanjii detail page
+    //var cont_button = $('#continue');
+    //cont_button.on('click', hide_the_details);
+
     game.fadeIn();
   };
 
@@ -32,6 +34,7 @@ $(function() {
 
 
   var activate_tile = function(tile) {
+    hide_the_details();
     tile.addClass('active');
     selected.push(tile);
     num_clicks++;
@@ -55,17 +58,22 @@ $(function() {
     });
   };
 
-//  method to post kanji detail
-  var pop_kanjii = function() {
-  };
+
+  var hide_the_details = function() {
+      $('#details').addClass('hidden');
+    };
+
 
   var is_match = function() {
     return selected[0].data('img-src') == selected[1].data('img-src');
   };
 
   var handle_match_found = function() {
+      var myImg = '<img src="'+selected[0].data('details-url')+'">';
       matches.push(selected);
       hide_selected();
+      $('.image.detail').html(myImg);
+      $('#details').removeClass('hidden');
       if (is_game_over()) {
         handle_win();
       }
