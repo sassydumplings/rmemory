@@ -3,7 +3,7 @@
        <div id="board">
 
           <% @rand_arr.each do |g| %>
-              <div class ="tile">
+              <div class ="tile" data-details-url="<%= g.img_details %>">
                 <img src=<%= "#{g.img_url}"%> alt="kanjii radical">
               </div>
            <% end %>

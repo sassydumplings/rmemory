@@ -69,7 +69,7 @@ $(function() {
   };
 
   var handle_match_found = function() {
-      var myImg = '<img src="'+selected[0].data('details-url')+'">';
+      var myImg = '<img src="'+selected[0].data('detailsUrl')+'">';
       matches.push(selected);
       hide_selected();
       $('.image.detail').html(myImg);

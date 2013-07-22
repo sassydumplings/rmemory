@@ -8,9 +8,8 @@
 </head>
 <body>
 
-<%= yield %>
-
-<body class="<%= params[:controller] %>">
+<header> this is the header
+<body >
   <div id="container">
     <div class="user_nav">
       <% if current_user %>
@@ -21,11 +20,8 @@
         <%= link_to "Log in", login_path  %>.
       <% end %>
     </div>
+</header>
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :id => "flash_#{name}" %>
-    <% end %>
-
-
+    <%= yield %>
 </body>
 </html>

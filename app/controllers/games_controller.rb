@@ -1,26 +1,31 @@
 class GamesController < ApplicationController
-  # GET /games
-  # GET /games.json
+
+
+  #before_filter :require_login, :only => :index
+
   def index
     # comment code
     @games = Game.all.sample(6)
     @rand_arr = []
     i = 1
     while i < 3
-        @games.each { |i| @rand_arr << i }
+        @games.each { |k| @rand_arr << k }
         i += 1
     end
     @rand_arr.shuffle!
-
-
-    #@games.each |img|
-    # @double << img
-    # @double .shuffle!
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @games }
     end
+  end
+
+  def require_login
+    redirect_to(login_path, :notice => 'Need to login')
+  end
+
+  def percentage
+    calculate how many kanjii compare to 100
   end
 end
 
