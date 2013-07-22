@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
 
-  #before_filter :require_login, :only => :index
+  before_filter :require_login
 
   def index
     # comment code
@@ -21,7 +21,9 @@ class GamesController < ApplicationController
   end
 
   def require_login
-    redirect_to(login_path, :notice => 'Need to login')
+    if current_user == false
+       redirect_to(login_path, :notice => 'Need to login')
+    end
   end
 
   def percentage
