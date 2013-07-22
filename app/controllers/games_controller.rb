@@ -27,7 +27,8 @@ class GamesController < ApplicationController
   end
 
   def learn
-
+    #need to get the current kanji that is selected
+    current_user.games << @game
   end
 
   def percentage
