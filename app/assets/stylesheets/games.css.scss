@@ -11,7 +11,37 @@ body {
   background:gold;
   font-family: sans-serif;
   background-image: image-url("bamboo.png");
+  color:rgba(127, 140, 141,1.0);
 }
+
+h1 {
+  font-size:24px;
+}
+#loginpage,#instructions {
+  background:rgba(236, 240, 241,1.0);
+  border-radius:11px;
+}
+
+#loginpage {
+  height:200px;
+  width:300px;
+}
+
+#instructions {
+  height:100px;
+  width:300px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:400px;
+  margin-left:-175px;
+  margin-top:-195px;
+  padding:40px 0;
+  text-align:center;
+  -moz-border-radius:11px;
+  -webkit-border-radius:11px;
+  }
+
 img {
   display:block;
 }
@@ -71,12 +101,12 @@ img {
   position:absolute;
   top:50%;
   left:50%;
-  width:350px;
+  width:400px;
   margin-left:-175px;
   margin-top:-195px;
   padding:40px 0;
   text-align:center;
-  background:rgba(255,255,255,0.9);
+  background:rgba(241, 196, 15,1.0);
   -moz-border-radius:11px;
   -webkit-border-radius:11px;
   border-radius:11px;
@@ -102,7 +132,7 @@ img {
   -webkit-border-radius:8px;
   border-radius:8px;
   display:inline-block;
-  color:gold;
+  color:#f39c12;
   font-size:18px;
   font-weight:bold;
   padding:10px 40px;
@@ -123,6 +153,46 @@ img {
   height:160px;
 }
 
+#details img {
+  display:inline;
+  border-radius:2%;
+}
+#details h1 {
+  font-size:24px;
+}
+#details {
+  display:none;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:650px;
+  margin-left:-175px;
+  margin-top:-195px;
+  padding:40px 0;
+  text-align:center;
+  background:rgba(189, 195, 199,1.0);
+  -moz-border-radius:11px;
+  -webkit-border-radius:11px;
+  border-radius:11px;
+  font-size:16px;
+}
+
+#details button {
+  display:block;
+  width:220px;
+  height:60px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  border-radius:8px;
+  display:inline-block;
+  color:#f39c12;
+  font-size:16px;
+  font-weight:bold;
+  padding:10px 40px;
+  text-decoration:none;
+  border:0;
+  background:#27ae60;
+}
 .hidden {
   visibility:hidden;
 }

@@ -10,6 +10,7 @@ $(function() {
   var selected       = [];
   var matches        = [];
   var anim_duration  = 1000;
+  var anim_results   = 5000;
   var num_clicks     = 0;
 
   // call this to ready the board for game play
@@ -22,8 +23,8 @@ $(function() {
     });
 
     // closes the kanjii detail page
-    //var cont_button = $('#continue');
-    //cont_button.on('click', hide_the_details);
+    var cont_button = $('#continue');
+    cont_button.on('click', hide_the_details);
 
     game.fadeIn();
   };
@@ -63,6 +64,15 @@ $(function() {
       $('#details').addClass('hidden');
     };
 
+  var mark_learned = function() {
+    $.ajax({
+      type: "POST",
+      url: "learn/:game_id",
+      data: { game_id: "3"}
+    }).done(function( ) {
+      alert( "Kanji marked learned");
+    });
+  };
 
   var is_match = function() {
     return selected[0].data('img-src') == selected[1].data('img-src');
@@ -70,10 +80,13 @@ $(function() {
 
   var handle_match_found = function() {
       var myImg = '<img src="'+selected[0].data('detailsUrl')+'">';
+      var learned_button = $('#learned_button');
       matches.push(selected);
       hide_selected();
       $('.image.detail').html(myImg);
       $('#details').removeClass('hidden');
+      $('#details').fadeIn();
+      learned_button.on('click', hide_the_details);
       if (is_game_over()) {
         handle_win();
       }
@@ -89,10 +102,11 @@ $(function() {
       var score   = $('#score', results);
       var button  = $('button', results);
 
+      $('#details').addClass('hidden');
       score.html(num_clicks);
       button.on('click', new_game);
       results.fadeIn();
-    }, anim_duration);
+    }, anim_results);
   };
 
   var handle_click = function() {

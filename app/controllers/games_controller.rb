@@ -26,8 +26,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def learn
+
+  end
+
   def percentage
-    calculate how many kanjii compare to 100
+    num_games     = Game.all.count
+    learned_count = current_user.games.count
+    @percentage = number_to_percentage((learned_count/num_games)*100)
   end
 end
 
