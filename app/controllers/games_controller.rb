@@ -26,8 +26,9 @@ class GamesController < ApplicationController
     end
   end
 
-  def learn
+  def learned
     #need to get the current kanji that is selected
+    @game = params[:game_id]
     current_user.games << @game
   end
 

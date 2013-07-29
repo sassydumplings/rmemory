@@ -64,33 +64,24 @@ $(function() {
       $('#details').addClass('hidden');
     };
 
-  var mark_learned = function() {
-    $.ajax({
-      type: "POST",
-      url: "learn/:game_id",
-      data: { game_id: "3"}
-    }).done(function( ) {
-      alert( "Kanji marked learned");
-    });
-  };
-
   var is_match = function() {
     return selected[0].data('img-src') == selected[1].data('img-src');
   };
 
   var handle_match_found = function() {
-      var myImg = '<img src="'+selected[0].data('detailsUrl')+'">';
-      var learned_button = $('#learned_button');
-      matches.push(selected);
-      hide_selected();
-      $('.image.detail').html(myImg);
-      $('#details').removeClass('hidden');
-      $('#details').fadeIn();
-      learned_button.on('click', hide_the_details);
-      if (is_game_over()) {
-        handle_win();
-      }
-  };
+        var myImg = '<img src="'+selected[0].data('details-url')+'">';
+        var learned_button = $('#learned_button');
+        matches.push(selected);
+        hide_selected();
+        $('.image.detail').html(myImg);
+        $('#details').removeClass('hidden');
+        $('#details').fadeIn();
+        learned_button.on('click', hide_the_details);
+        if (is_game_over()) {
+          handle_win();
+        }
+    };
+
 
   var is_game_over = function() {
     return (2 * matches.length) == tiles.length;

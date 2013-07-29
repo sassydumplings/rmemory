@@ -1,0 +1,14 @@
+in games.js
+
+var mark_learned = function() {
+  $.ajax({
+    type: "POST",
+    url: 'learn/' + <%= game_id %>,
+    data: { game_id: }
+  }).done(function( ) {
+    alert( "Kanji marked learned");
+  });
+};
+
+in routes:
+# post "learn/:game_id" => "games#learn", :as => "learn_kanji"

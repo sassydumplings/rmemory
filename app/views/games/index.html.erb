@@ -3,8 +3,8 @@
        <div id="board">
 
           <% @rand_arr.each do |g| %>
-              <div class ="tile" data-details-url="<%= g.img_details %>">
-                <img src=<%= "#{g.img_url}"%> alt="kanjii radical">
+              <div class ="tile" data-kanjii=<%="#{g.id}"%>>
+                <img src=<%= "#{g.img_url}"%> alt="kanjii" >
               </div>
            <% end %>
       </div>
@@ -13,8 +13,9 @@
       <div id="details" class="hidden">
         <span class="image detail"></span>
         <h1>You found a match!</h1>
-        <button id="continue">continue</button>
-        <button id="learned_button">mark learned</button>
+        <p>Here is more info about this Kanjii</p>
+        <button id="continue">cont game</button>
+        <button id="learned">mark learned</button>
       </div>
 
       <div id="results">
