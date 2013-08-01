@@ -1,7 +1,7 @@
 Rmemory::Application.routes.draw do
 
     root :to => 'games#index'
-    post  "/learned/id " => "games#learned", :as => "learned"
+    get  "/games/learned" => "games#learned"
 
 
     get "logout" => "Sessions#destroy", :as => "logout"

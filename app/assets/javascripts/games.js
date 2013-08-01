@@ -59,6 +59,19 @@ $(function() {
     });
   };
 
+var learned_kanjii = function() {
+  hide_the_details();
+    $.ajax({
+      dataType: "script",
+      type: "GET",
+      url: "/games/learned?id="+selected[0].data("kanjii"),
+      success: function(){
+        hide_the_details();
+        alert("Kanii Learned");
+      }
+
+    });
+  };
 
   var hide_the_details = function() {
       $('#details').addClass('hidden');
@@ -69,14 +82,16 @@ $(function() {
   };
 
   var handle_match_found = function() {
-        var myImg = '<img src="'+selected[0].data('details-url')+'">';
-        var learned_button = $('#learned_button');
+        var myImg = '<img src="assets/'+selected[0].data("kanjii")+'_detail.png">';
+        console.log(selected)
+        window.selected = selected;
+        var learned_button = $('#learned');
         matches.push(selected);
         hide_selected();
         $('.image.detail').html(myImg);
         $('#details').removeClass('hidden');
         $('#details').fadeIn();
-        learned_button.on('click', hide_the_details);
+        learned_button.on('click', learned_kanjii);
         if (is_game_over()) {
           handle_win();
         }
