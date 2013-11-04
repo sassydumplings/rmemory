@@ -62,9 +62,9 @@ $(function() {
   };
 
 var learned_kanji = function() {
-  hide_the_details();
+  // hide_the_details();
     $.ajax({
-      dataType: "script",
+      // dataType: "script",
       type: "GET",
       url: "/games/learned?id="+selected[0].data("kanji"),
       success: function(){
