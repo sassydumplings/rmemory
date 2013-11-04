@@ -23,3 +23,22 @@
 #emptydiv {
  padding:10px;
 }
+
+.frontPage {
+  text-align: center;
+  font-family: sans-serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+#topTitle {
+  font-size:30px;
+}
+
+#ins {
+  padding-top: 50px;
+  font-size:20px;
+  font-weight: normal;
+  background-color: transparent;
+}
+

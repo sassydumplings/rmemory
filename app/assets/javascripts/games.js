@@ -20,6 +20,8 @@ $(function() {
       var tile = tiles[k];
       tile.data('img-src', tile.find('img').attr('src'));
       tile.on('click', handle_click);
+      $('.frontPage').remove('#topTitle');
+      $('.frontPage').remove('#instructions');
     });
 
     // closes the kanjii detail page
@@ -59,12 +61,12 @@ $(function() {
     });
   };
 
-var learned_kanjii = function() {
+var learned_kanji = function() {
   hide_the_details();
     $.ajax({
       dataType: "script",
       type: "GET",
-      url: "/games/learned?id="+selected[0].data("kanjii"),
+      url: "/games/learned?id="+selected[0].data("kanji"),
       success: function(){
         hide_the_details();
         alert("Kanii Learned");
@@ -82,7 +84,7 @@ var learned_kanjii = function() {
   };
 
   var handle_match_found = function() {
-        var myImg = '<img src="assets/'+selected[0].data("kanjii")+'_detail.png">';
+        var myImg = '<img src="assets/'+selected[0].data("kanji")+'_detail.png">';
         console.log(selected)
         window.selected = selected;
         var learned_button = $('#learned');
@@ -91,7 +93,7 @@ var learned_kanjii = function() {
         $('.image.detail').html(myImg);
         $('#details').removeClass('hidden');
         $('#details').fadeIn();
-        learned_button.on('click', learned_kanjii);
+        learned_button.on('click', learned_kanji);
         if (is_game_over()) {
           handle_win();
         }
